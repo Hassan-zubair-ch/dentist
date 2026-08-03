@@ -15,20 +15,20 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
   const row2Tabs = ['Tooth Filling', 'Gum Treatment', 'Retainers'];
 
   return (
-    <section className="relative pt-6 pb-6 px-4 max-w-7xl mx-auto">
+    <section className="relative p-2 sm:p-4 md:p-6 lg:p-8 w-full max-w-[2500px] mx-auto min-h-screen flex flex-col">
       {/* Dark Outer Hero Container (Orbix Studio 1:1 Design) */}
-      <div className="relative rounded-[2.5rem] overflow-hidden bg-[#0D1520] text-white min-h-[600px] lg:min-h-[660px] flex flex-col justify-between p-6 sm:p-10 lg:p-12 border border-slate-800 shadow-2xl">
+      <div className="relative rounded-[3rem] overflow-hidden bg-[#0D1520] text-white flex-1 flex flex-col justify-between p-6 sm:p-10 lg:p-12 border border-slate-800 shadow-2xl min-h-[85vh]">
         <Navbar variant="transparent" onOpenBooking={onOpenBooking} />
         {/* Background Patient Image (Warm, Human Close-up Smile receiving gentle dental care) */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=2000&q=80"
+            src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=2000&q=80"
             alt="Family-Friendly Dental Patient Smile"
-            className="w-full h-full object-cover object-[75%_center] opacity-95 scale-100"
+            className="w-full h-full object-cover object-[60%_center] opacity-90 scale-100"
           />
           {/* Subtle gradient overlay to ensure 100% white text contrast on left side */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#0D1520] via-[#0D1520]/80 to-transparent w-full sm:w-3/4" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0D1520] via-transparent to-[#0D1520]/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0D1520] via-[#0D1520]/10 to-transparent" />
         </div>
 
         {/* Hero Main Headline & Subtitle Left */}
@@ -147,7 +147,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
 
         {/* Hero Bottom Strip */}
         <div className="relative z-10 pt-4 mt-6 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400">
-          <div className="font-medium">Your Teeth Our Scalence</div>
+          <div className="font-medium">Your Teeth Our Science</div>
 
           <div className="flex items-center gap-3">
             <span>
