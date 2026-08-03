@@ -15,17 +15,21 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
   const row2Tabs = ['Tooth Filling', 'Gum Treatment', 'Retainers'];
 
   return (
-    <section className="relative p-2 sm:p-4 md:p-6 lg:p-8 w-full max-w-[2500px] mx-auto min-h-screen flex flex-col">
+    <section className="relative p-2 md:p-4 lg:p-5 w-full max-w-[2500px] mx-auto min-h-screen flex flex-col">
       {/* Dark Outer Hero Container (Orbix Studio 1:1 Design) */}
-      <div className="relative rounded-[3rem] overflow-hidden bg-[#0D1520] text-white flex-1 flex flex-col justify-between p-6 sm:p-10 lg:p-12 border border-slate-800 shadow-2xl min-h-[85vh]">
+      <div className="relative rounded-[2.5rem] overflow-hidden bg-[#0D1520] text-white flex-1 flex flex-col justify-between p-6 sm:p-8 lg:p-10 border border-slate-800 shadow-2xl min-h-[85vh]">
         <Navbar variant="transparent" onOpenBooking={onOpenBooking} />
-        {/* Background Patient Image (Warm, Human Close-up Smile receiving gentle dental care) */}
+        {/* Background Patient Video (Highly engaging) */}
         <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=2000&q=80"
-            alt="Family-Friendly Dental Patient Smile"
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
             className="w-full h-full object-cover object-[60%_center] opacity-90 scale-100"
-          />
+          >
+            <source src="https://cdn.pixabay.com/video/2021/08/25/86270-593688627_large.mp4" type="video/mp4" />
+          </video>
           {/* Subtle gradient overlay to ensure 100% white text contrast on left side */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#0D1520] via-[#0D1520]/80 to-transparent w-full sm:w-3/4" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0D1520] via-[#0D1520]/10 to-transparent" />
@@ -68,33 +72,31 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="md:col-span-6 lg:col-span-5 bg-slate-900/85 backdrop-blur-xl border border-white/10 p-3.5 rounded-2xl space-y-3 shadow-2xl max-w-xs"
+            className="md:col-span-6 lg:col-span-5 bg-slate-900/40 backdrop-blur-md border border-white/10 p-3 rounded-2xl space-y-3 shadow-2xl w-full max-w-[260px]"
           >
-            <div className="relative rounded-xl overflow-hidden h-28 bg-slate-800 group">
+            <div className="relative rounded-xl overflow-hidden h-36 bg-slate-800 group">
               <img
                 src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=400&q=80"
                 alt="Procedure preview"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-slate-950/20 flex items-center justify-center">
-                <div className="w-8 h-8 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30">
                   <Play className="w-4 h-4 text-white fill-white ml-0.5" />
                 </div>
               </div>
             </div>
 
-            <p className="text-xs font-semibold text-slate-200 leading-snug">
+            <p className="text-[13px] font-normal text-slate-200 leading-snug px-1">
               Restore natural healthy confident dental growth.
             </p>
 
-            <div className="flex items-center justify-between pt-1">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800/90 border border-slate-700 text-[11px] font-bold text-amber-400">
-                <Star className="w-3 h-3 fill-amber-400" />
+            <div className="flex items-center justify-between pt-1 px-1">
+              <div className="inline-flex items-center gap-1.5 text-[11px] font-bold text-amber-400">
+                <Star className="w-3.5 h-3.5 fill-amber-400" />
                 <span>4.9 [Rating]</span>
               </div>
-              <button className="w-7 h-7 rounded-full bg-white/10 hover:bg-cyan-500 text-cyan-400 hover:text-slate-950 flex items-center justify-center transition-all">
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </button>
+              <ArrowUpRight className="w-4 h-4 text-white" />
             </div>
           </motion.div>
 
@@ -146,32 +148,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
         </div>
 
         {/* Hero Bottom Strip */}
-        <div className="relative z-10 pt-4 mt-6 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400">
-          <div className="font-medium">Your Teeth Our Science</div>
+        <div className="relative z-10 pt-4 mt-6 border-t border-white/20 flex items-center justify-between text-[11px] text-slate-400 max-w-[calc(100%-250px)]">
+          <div className="font-medium text-slate-300 tracking-wide">Your Teeth Our Sceience</div>
 
-          <div className="flex items-center gap-3">
-            <span>
-              Preview <strong className="text-white">0{activeSlide}</strong> / 08 Next
-            </span>
-            <div className="flex items-center gap-1">
-              <button
-                onClick={() => setActiveSlide((prev) => (prev > 1 ? prev - 1 : 8))}
-                className="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center"
-              >
-                <ChevronLeft className="w-3.5 h-3.5" />
-              </button>
-              <button
-                onClick={() => setActiveSlide((prev) => (prev < 8 ? prev + 1 : 1))}
-                className="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center"
-              >
-                <ChevronRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
-
-          <div className="hidden sm:flex items-center gap-2 text-slate-400">
+          <div className="hidden sm:flex items-center gap-3 text-slate-400">
             <span>Scroll for More</span>
-            <div className="w-10 h-0.5 bg-white/20 rounded-full"></div>
+            <div className="w-16 h-[1px] bg-white/30"></div>
           </div>
         </div>
       </div>
