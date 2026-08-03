@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Star, ChevronLeft, ChevronRight, ArrowUpRight, Play } from 'lucide-react';
+import { Navbar } from './Navbar';
 
 interface HeroProps {
   onOpenBooking: () => void;
@@ -14,9 +15,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
   const row2Tabs = ['Tooth Filling', 'Gum Treatment', 'Retainers'];
 
   return (
-    <section className="relative pt-24 pb-6 px-4 max-w-7xl mx-auto">
+    <section className="relative pt-6 pb-6 px-4 max-w-7xl mx-auto">
       {/* Dark Outer Hero Container (Orbix Studio 1:1 Design) */}
       <div className="relative rounded-[2.5rem] overflow-hidden bg-[#0D1520] text-white min-h-[600px] lg:min-h-[660px] flex flex-col justify-between p-6 sm:p-10 lg:p-12 border border-slate-800 shadow-2xl">
+        <Navbar variant="transparent" onOpenBooking={onOpenBooking} />
         {/* Background Patient Image (Warm, Human Close-up Smile receiving gentle dental care) */}
         <div className="absolute inset-0 z-0">
           <img
