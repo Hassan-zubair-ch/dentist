@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, ChevronLeft, ChevronRight, ArrowUpRight, Play } from 'lucide-react';
+import { ArrowRight, Star, ArrowUpRight, Play } from 'lucide-react';
 import { Navbar } from './Navbar';
 
 interface HeroProps {
@@ -8,9 +8,6 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
-  const [activeTab, setActiveTab] = useState('Dental Checkup');
-  const [activeSlide, setActiveSlide] = useState(1);
-
   const row1Tabs = ['Dental Checkup', 'Teeth Cleaning'];
   const row2Tabs = ['Tooth Filling', 'Gum Treatment', 'Retainers'];
 
