@@ -130,7 +130,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, variant = 'floati
     );
   }
 
-  if (location.pathname === '/' && variant !== 'transparent') {
+  if (location.pathname === '/') {
     return null;
   }
 
