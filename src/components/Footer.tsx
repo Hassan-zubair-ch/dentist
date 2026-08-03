@@ -143,14 +143,12 @@ export const Footer: React.FC = () => {
         </div>
       </div>
 
-      {/* Giant Typography Watermark Background (Vertical on the Right) */}
+      {/* Giant Typography Watermark Background (Horizontal at Bottom) */}
       <div 
-        className="absolute right-0 top-0 bottom-0 select-none pointer-events-none flex items-center justify-center opacity-[0.03] z-0 overflow-hidden mix-blend-multiply"
-        style={{ width: '400px' }}
+        className="absolute left-0 right-0 bottom-0 select-none pointer-events-none flex items-end justify-center opacity-[0.03] z-0 overflow-hidden mix-blend-multiply"
       >
         <span 
-          className="text-[250px] font-extrabold text-slate-900 tracking-tighter"
-          style={{ transform: 'rotate(-90deg)', whiteSpace: 'nowrap' }}
+          className="text-[20vw] leading-[0.75] font-extrabold text-slate-900 tracking-tighter whitespace-nowrap"
         >
           Dentora
         </span>

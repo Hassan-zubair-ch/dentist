@@ -8,6 +8,7 @@ import { ServicesPage } from './pages/ServicesPage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { BlogPage } from './pages/BlogPage';
+import { TestimonialsPage } from './pages/TestimonialsPage';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -33,6 +34,7 @@ export const App: React.FC = () => {
             <Route path="/about" element={<AboutPage onOpenBooking={() => setIsBookingOpen(true)} />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/blog" element={<BlogPage />} />
+            <Route path="/testimonials" element={<TestimonialsPage onOpenBooking={() => setIsBookingOpen(true)} />} />
             <Route path="*" element={<HomePage onOpenBooking={() => setIsBookingOpen(true)} />} />
           </Routes>
         </div>

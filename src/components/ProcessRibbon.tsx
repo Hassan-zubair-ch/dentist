@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export const ProcessRibbon: React.FC = () => {
   const steps = [
@@ -9,7 +10,13 @@ export const ProcessRibbon: React.FC = () => {
   ];
 
   return (
-    <div className="w-full max-w-[2500px] mx-auto px-4 md:px-8 lg:px-12 xl:px-16 my-6">
+    <motion.div 
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, margin: "-10%" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="w-full max-w-[2500px] mx-auto px-4 md:px-8 lg:px-12 xl:px-16 my-6"
+    >
       {/* Striped Background Process Track (Matching Orbix Studio Barcode/Striped pattern) */}
       <div className="relative py-4 px-6 rounded-2xl bg-slate-50 border border-slate-200/60 overflow-hidden flex items-center justify-between">
         {/* Striped Background Pattern */}
@@ -31,6 +38,6 @@ export const ProcessRibbon: React.FC = () => {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

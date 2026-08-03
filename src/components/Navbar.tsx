@@ -28,7 +28,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, variant = 'floati
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
     { name: 'About Us', path: '/about' },
-    { name: 'Testimonial', path: '/#testimonials' },
+    { name: 'Testimonial', path: '/testimonials' },
     { name: 'Contact', path: '/contact' },
   ];
 

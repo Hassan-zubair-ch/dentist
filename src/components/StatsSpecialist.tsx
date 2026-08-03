@@ -18,7 +18,13 @@ export const StatsSpecialist: React.FC<StatsSpecialistProps> = ({ onOpenBooking 
     'We deliver personalized dental treatments with modern technology and gentle care ensuring healthy confident smiles for every patient.';
 
   return (
-    <section className="py-12 px-4 md:px-8 lg:px-12 xl:px-16 w-full max-w-[2500px] mx-auto space-y-20">
+    <motion.section 
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, margin: "-10%" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="py-12 px-4 md:px-8 lg:px-12 xl:px-16 w-full max-w-[2500px] mx-auto space-y-20"
+    >
       {/* 1. About Us Statement Section with Scroll-Filling Text Animation */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-4">
         {/* Left: About Us Badge & Dual Doctor Thumbnails */}
@@ -123,7 +129,7 @@ export const StatsSpecialist: React.FC<StatsSpecialistProps> = ({ onOpenBooking 
                   key={stat.label}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="space-y-1"
                 >
@@ -155,7 +161,7 @@ export const StatsSpecialist: React.FC<StatsSpecialistProps> = ({ onOpenBooking 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="lg:col-span-6 bg-blue-50/60 rounded-[2.5rem] p-6 border border-blue-100 shadow-xl space-y-6"
         >
           <div className="relative rounded-2xl overflow-hidden bg-blue-100 h-64 sm:h-72">
@@ -214,6 +220,6 @@ export const StatsSpecialist: React.FC<StatsSpecialistProps> = ({ onOpenBooking 
           </div>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
