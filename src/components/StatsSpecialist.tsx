@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, ArrowRight, Video, Mic, PhoneOff } from 'lucide-react';
+import { ScrollFillText } from './ScrollFillText';
 
 interface StatsSpecialistProps {
   onOpenBooking: () => void;
@@ -13,11 +14,14 @@ export const StatsSpecialist: React.FC<StatsSpecialistProps> = ({ onOpenBooking 
     { value: '4.9*', label: 'Customer Rating' },
   ];
 
+  const scrollHeadlineText =
+    'We deliver personalized dental treatments with modern technology and gentle care ensuring healthy confident smiles for every patient.';
+
   return (
     <section className="py-12 px-4 max-w-7xl mx-auto space-y-20">
-      {/* 1. About Us Statement Section (Directly under Process Ribbon) */}
+      {/* 1. About Us Statement Section with Scroll-Filling Text Animation */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-4">
-        {/* Left: About Us Badge & 2 Team Thumbnails */}
+        {/* Left: About Us Badge & Dual Doctor Thumbnails */}
         <div className="lg:col-span-4 space-y-6">
           <div>
             <span className="inline-block px-4 py-1.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider">
@@ -43,25 +47,14 @@ export const StatsSpecialist: React.FC<StatsSpecialistProps> = ({ onOpenBooking 
           </div>
         </div>
 
-        {/* Right: Large Headline Quote */}
+        {/* Right: Scroll-Filling Animated Text */}
         <div className="lg:col-span-8">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.2]"
-          >
-            We deliver personalized dental treatments with modern{' '}
-            <span className="text-slate-400 font-normal">
-              technology and gentle care ensuring healthy confident smiles for every patient.
-            </span>
-          </motion.h2>
+          <ScrollFillText text={scrollHeadlineText} />
         </div>
       </div>
 
       {/* 2. Top Row: Patient Photo Left + Equipment & Analytics Progress Card Right */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        {/* Patient Photo Left */}
         <div className="lg:col-span-6 rounded-3xl overflow-hidden shadow-xl border border-slate-100 min-h-[300px]">
           <img
             src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=80"
@@ -70,7 +63,6 @@ export const StatsSpecialist: React.FC<StatsSpecialistProps> = ({ onOpenBooking 
           />
         </div>
 
-        {/* Equipment Image & Floating Analytics Progress Widget Right */}
         <div className="lg:col-span-6 relative rounded-3xl overflow-hidden min-h-[300px] flex flex-col justify-end p-6 border border-slate-100 shadow-xl group">
           <img
             src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1000&q=80"
@@ -79,7 +71,6 @@ export const StatsSpecialist: React.FC<StatsSpecialistProps> = ({ onOpenBooking 
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
 
-          {/* Floating White Progress Card */}
           <div className="relative z-10 bg-white/95 backdrop-blur-xl rounded-2xl p-5 shadow-2xl border border-white/80 space-y-3">
             <div className="grid grid-cols-2 gap-4 pb-3 border-b border-slate-100 text-slate-800">
               <div>
@@ -120,9 +111,7 @@ export const StatsSpecialist: React.FC<StatsSpecialistProps> = ({ onOpenBooking 
 
       {/* 3. Bottom Row: Stats & Feature Headline Left + Dr. Daniel Carter Card Right */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-6">
-        {/* Left Column: Stats & Feature Treatment Headline */}
         <div className="lg:col-span-6 space-y-8">
-          {/* Stats Bar */}
           <div className="space-y-4">
             <span className="text-xs font-bold text-slate-400 tracking-wider block">
               Thousands Trust Us for Smiles!
@@ -149,7 +138,6 @@ export const StatsSpecialist: React.FC<StatsSpecialistProps> = ({ onOpenBooking 
             </div>
           </div>
 
-          {/* Feature Treatment Banner */}
           <div className="space-y-4 pt-4">
             <span className="inline-block px-4 py-1.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider">
               Feature Treatment
@@ -164,14 +152,12 @@ export const StatsSpecialist: React.FC<StatsSpecialistProps> = ({ onOpenBooking 
           </div>
         </div>
 
-        {/* Right Column: Dr. Daniel Carter Doctor Card */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="lg:col-span-6 bg-blue-50/60 rounded-[2.5rem] p-6 border border-blue-100 shadow-xl space-y-6"
         >
-          {/* Doctor Video Frame */}
           <div className="relative rounded-2xl overflow-hidden bg-blue-100 h-64 sm:h-72">
             <img
               src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80"
@@ -179,7 +165,6 @@ export const StatsSpecialist: React.FC<StatsSpecialistProps> = ({ onOpenBooking 
               className="w-full h-full object-cover object-top"
             />
             
-            {/* Inset Patient Consultation Thumbnail */}
             <div className="absolute top-3 left-3 w-14 h-14 rounded-xl overflow-hidden border-2 border-white shadow-md">
               <img
                 src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
@@ -188,7 +173,6 @@ export const StatsSpecialist: React.FC<StatsSpecialistProps> = ({ onOpenBooking 
               />
             </div>
 
-            {/* Video Call Controls Overlay */}
             <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-full flex items-center gap-2 text-white border border-white/10 shadow-lg">
               <button className="w-7 h-7 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center">
                 <Mic className="w-3.5 h-3.5" />
@@ -202,7 +186,6 @@ export const StatsSpecialist: React.FC<StatsSpecialistProps> = ({ onOpenBooking 
             </div>
           </div>
 
-          {/* Doctor Details */}
           <div className="space-y-4">
             <div className="flex items-start justify-between">
               <div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronUp, ChevronDown, Award, Quote } from 'lucide-react';
+import { ScrollFillText } from './ScrollFillText';
 
 export const WhyChooseUs: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -145,12 +146,7 @@ export const WhyChooseUs: React.FC = () => {
 
           <div className="space-y-4">
             <Quote className="w-10 h-10 text-slate-300 fill-slate-200" />
-            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-relaxed">
-              We deliver personalized dental treatments{' '}
-              <span className="text-slate-400 font-normal">
-                modern technology and gentle care ensuring healthy confident smiles for every patient.
-              </span>
-            </h3>
+            <ScrollFillText text={testimonials[currentSlide].quote} />
 
             <div className="pt-2">
               <h4 className="font-extrabold text-slate-900 text-sm">{testimonials[currentSlide].author}</h4>
