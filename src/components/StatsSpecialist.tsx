@@ -18,7 +18,7 @@ export const StatsSpecialist: React.FC<StatsSpecialistProps> = ({ onOpenBooking 
     'We deliver personalized dental treatments with modern technology and gentle care ensuring healthy confident smiles for every patient.';
 
   return (
-    <section className="py-12 px-4 max-w-7xl mx-auto space-y-20">
+    <section className="py-12 px-4 md:px-8 lg:px-12 xl:px-16 w-full max-w-[2500px] mx-auto space-y-20">
       {/* 1. About Us Statement Section with Scroll-Filling Text Animation */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-4">
         {/* Left: About Us Badge & Dual Doctor Thumbnails */}

@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="relative bg-[#FAFCFF] pt-24 pb-8 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10 space-y-24">
+      <div className="max-w-[2500px] mx-auto px-4 md:px-8 lg:px-12 xl:px-16 relative z-10 space-y-24">
         
         {/* Top Row: Newsletter (Left) & Contact (Right) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">

@@ -9,7 +9,7 @@ export const ProcessRibbon: React.FC = () => {
   ];
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 my-6">
+    <div className="w-full max-w-[2500px] mx-auto px-4 md:px-8 lg:px-12 xl:px-16 my-6">
       {/* Striped Background Process Track (Matching Orbix Studio Barcode/Striped pattern) */}
       <div className="relative py-4 px-6 rounded-2xl bg-slate-50 border border-slate-200/60 overflow-hidden flex items-center justify-between">
         {/* Striped Background Pattern */}

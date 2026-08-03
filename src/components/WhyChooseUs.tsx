@@ -23,7 +23,7 @@ export const WhyChooseUs: React.FC = () => {
   ];
 
   return (
-    <section id="testimonials" className="py-20 px-4 max-w-7xl mx-auto space-y-12">
+    <section id="testimonials" className="py-20 px-4 md:px-8 lg:px-12 xl:px-16 w-full max-w-[2500px] mx-auto space-y-12">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <div className="lg:col-span-7 space-y-8">
           <div className="flex items-end justify-between">
