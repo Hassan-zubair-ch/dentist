@@ -1,12 +1,11 @@
 import React from 'react';
 import { WhyChooseUs } from '../components/WhyChooseUs';
-import { Footer } from '../components/Footer';
 
 interface TestimonialsPageProps {
-  onOpenBooking: () => void;
+  onOpenBooking?: () => void; // Optional since it's not currently used, or just omit it from props list below
 }
 
-export const TestimonialsPage: React.FC<TestimonialsPageProps> = ({ onOpenBooking }) => {
+export const TestimonialsPage: React.FC<TestimonialsPageProps> = () => {
   return (
     <div className="pt-24 pb-12">
       <div className="text-center py-16 px-4">
