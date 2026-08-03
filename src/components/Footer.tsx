@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, CheckCircle2, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
+import { Mail, CheckCircle2, Globe, MessageCircle, Share2, Video } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -120,16 +120,16 @@ export const Footer: React.FC = () => {
               <span className="text-[13px] font-semibold text-slate-900">Follow Us</span>
               <div className="flex items-center gap-3">
                 <a href="#facebook" aria-label="Facebook" className="w-8 h-8 rounded-full bg-slate-100 hover:bg-cyan-400 hover:text-white text-slate-700 flex items-center justify-center transition-all">
-                  <Facebook className="w-3.5 h-3.5 fill-current" />
+                  <Globe className="w-3.5 h-3.5" />
                 </a>
                 <a href="#instagram" aria-label="Instagram" className="w-8 h-8 rounded-full bg-slate-100 hover:bg-cyan-400 hover:text-white text-slate-700 flex items-center justify-center transition-all">
-                  <Instagram className="w-3.5 h-3.5" />
+                  <MessageCircle className="w-3.5 h-3.5" />
                 </a>
                 <a href="#twitter" aria-label="X" className="w-8 h-8 rounded-full bg-slate-100 hover:bg-cyan-400 hover:text-white text-slate-700 flex items-center justify-center transition-all">
-                  <Twitter className="w-3.5 h-3.5 fill-current" />
+                  <Share2 className="w-3.5 h-3.5" />
                 </a>
                 <a href="#youtube" aria-label="YouTube" className="w-8 h-8 rounded-full bg-slate-100 hover:bg-cyan-400 hover:text-white text-slate-700 flex items-center justify-center transition-all">
-                  <Youtube className="w-3.5 h-3.5 fill-current" />
+                  <Video className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>

@@ -8,6 +8,8 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
+  const [activeTab, setActiveTab] = useState('Dental Checkup');
+
   const row1Tabs = ['Dental Checkup', 'Teeth Cleaning'];
   const row2Tabs = ['Tooth Filling', 'Gum Treatment', 'Retainers'];
 
