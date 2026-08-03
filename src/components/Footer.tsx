@@ -156,6 +156,5 @@ export const Footer: React.FC = () => {
         </span>
       </div>
     </footer>
-    </footer>
   );
 };
