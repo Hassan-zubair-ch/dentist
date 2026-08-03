@@ -25,9 +25,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             loop
             muted
             playsInline
+            poster="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=2500&q=80"
             className="w-full h-full object-cover object-[60%_center] opacity-90 scale-100"
           >
-            <source src="https://cdn.pixabay.com/video/2021/08/25/86270-593688627_large.mp4" type="video/mp4" />
+            <source src="/video.mp4" type="video/mp4" />
           </video>
           {/* Subtle gradient overlay to ensure 100% white text contrast on left side */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#0D1520] via-[#0D1520]/80 to-transparent w-full sm:w-3/4" />
