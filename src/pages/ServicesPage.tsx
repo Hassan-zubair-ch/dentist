@@ -45,53 +45,85 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => 
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  };
+
   return (
-    <div className="pt-28 pb-20 px-4 max-w-7xl mx-auto space-y-16">
+    <div className="pt-24 pb-20 px-4 md:px-8 lg:px-12 xl:px-16 max-w-[2500px] mx-auto w-full space-y-20 overflow-hidden">
       {/* Page Header */}
-      <div className="text-center max-w-3xl mx-auto space-y-4">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-700 text-xs font-bold uppercase tracking-wider">
-          Dentora Specialty Care
-        </span>
-        <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight">
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="text-center max-w-4xl mx-auto space-y-6 pt-12"
+      >
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-50 border border-cyan-100 mx-auto">
+          <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
+          <span className="text-cyan-700 text-xs font-bold uppercase tracking-widest">Dentora Specialty Care</span>
+        </div>
+        
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.1]">
           Comprehensive Dental <br />
-          <span className="text-cyan-600">Services & Treatments</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600">
+            Services & Treatments
+          </span>
         </h1>
-        <p className="text-base text-slate-600 leading-relaxed">
-          Explore our range of personalized dental care options powered by state-of-the-art diagnostic technology.
+        <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
+          Explore our range of personalized dental care options powered by state-of-the-art diagnostic technology for a pain-free experience.
         </p>
-      </div>
+      </motion.div>
 
       {/* Services Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-100px" }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12"
+      >
         {servicesList.map((srv, idx) => {
           const Icon = srv.icon;
           return (
             <motion.div
+              variants={itemVariants}
               key={srv.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-xl shadow-slate-200/40 flex flex-col justify-between space-y-6 hover:border-cyan-300 transition-all group"
+              className="group relative bg-white rounded-[3rem] p-8 sm:p-10 border border-slate-100 shadow-xl hover:shadow-2xl flex flex-col justify-between space-y-8 transition-all duration-500 overflow-hidden"
             >
-              <div className="space-y-4">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-cyan-50 rounded-bl-[120px] -z-10 transition-transform duration-500 group-hover:scale-110 group-hover:bg-cyan-100"></div>
+
+              <div className="space-y-6">
                 <div className="flex items-center justify-between">
-                  <div className="w-14 h-14 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center border border-cyan-100 group-hover:scale-110 transition-transform">
-                    <Icon className="w-7 h-7" />
+                  <div className="w-16 h-16 rounded-3xl bg-slate-900 text-white flex items-center justify-center group-hover:bg-cyan-600 transition-colors shadow-lg">
+                    <Icon className="w-8 h-8" />
                   </div>
-                  <span className="text-sm font-extrabold text-slate-900 bg-slate-100 px-3 py-1 rounded-full">
+                  <span className="text-sm font-extrabold text-cyan-700 bg-cyan-50 px-4 py-2 rounded-full border border-cyan-100">
                     {srv.price}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-slate-900 group-hover:text-cyan-600 transition-colors">
-                  {srv.title}
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">{srv.desc}</p>
+                <div className="space-y-3">
+                  <h3 className="text-2xl font-extrabold text-slate-900 group-hover:text-cyan-600 transition-colors">
+                    {srv.title}
+                  </h3>
+                  <p className="text-sm text-slate-600 leading-relaxed">{srv.desc}</p>
+                </div>
 
-                <ul className="space-y-2 pt-2">
+                <ul className="space-y-3 pt-4 border-t border-slate-100">
                   {srv.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-xs font-medium text-slate-700">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-500 shrink-0" />
+                    <li key={f} className="flex items-center gap-3 text-sm font-medium text-slate-700">
+                      <CheckCircle2 className="w-5 h-5 text-cyan-500 shrink-0" />
                       <span>{f}</span>
                     </li>
                   ))}
@@ -100,15 +132,15 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => 
 
               <button
                 onClick={onOpenBooking}
-                className="w-full bg-slate-900 hover:bg-cyan-500 text-white font-bold py-3.5 rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 text-xs"
+                className="w-full bg-slate-900 group-hover:bg-cyan-500 text-white font-bold py-4 rounded-2xl transition-all duration-300 flex items-center justify-center gap-3 text-sm shadow-xl hover:shadow-cyan-500/25 relative overflow-hidden"
               >
-                <span>Book This Service</span>
-                <ArrowRight className="w-4 h-4" />
+                <span className="relative z-10">Book This Service</span>
+                <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
               </button>
             </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 };
