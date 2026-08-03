@@ -62,9 +62,8 @@ export const BlogSection: React.FC = () => {
         </h2>
       </div>
 
-      {/* Blog Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-        {posts.map((post, index) => (
+        {posts.map((post) => (
           <motion.article
             key={post.id}
             variants={itemVariants}
