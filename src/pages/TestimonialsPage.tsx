@@ -104,7 +104,7 @@ export const TestimonialsPage: React.FC<TestimonialsPageProps> = ({ onOpenBookin
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: false, margin: "-100px" }}
           className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8"
         >
           {allTestimonials.map((testimonial) => (
@@ -145,7 +145,7 @@ export const TestimonialsPage: React.FC<TestimonialsPageProps> = ({ onOpenBookin
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="flex justify-center pt-16"
         >
           <button

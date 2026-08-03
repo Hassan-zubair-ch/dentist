@@ -50,23 +50,30 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => 
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15
+        staggerChildren: 0.2
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    hidden: { opacity: 0, y: 50, scale: 0.9, filter: 'blur(10px)' },
+    show: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1, 
+      filter: 'blur(0px)', 
+      transition: { duration: 0.8 } 
+    }
   };
 
   return (
     <div className="pt-24 pb-20 px-4 md:px-8 lg:px-12 xl:px-16 max-w-[2500px] mx-auto w-full space-y-20 overflow-hidden">
       {/* Page Header */}
       <motion.div 
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
+        whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+        viewport={{ once: false, margin: "-50px" }}
+        transition={{ duration: 0.8 }}
         className="text-center max-w-4xl mx-auto space-y-6 pt-12"
       >
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-50 border border-cyan-100 mx-auto">
@@ -90,7 +97,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => 
         variants={containerVariants}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: false, margin: "-50px" }}
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12"
       >
         {servicesList.map((srv) => {

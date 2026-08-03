@@ -114,7 +114,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenBooking }) => {
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: false, margin: "-50px" }}
           className="text-center max-w-3xl mx-auto space-y-6"
         >
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight">
@@ -131,7 +131,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenBooking }) => {
               key={doc.name}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: false, margin: "-50px" }}
               transition={{ delay: idx * 0.15, duration: 0.6 }}
               className="group relative bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden"
             >

@@ -37,6 +37,17 @@ export const BlogSection: React.FC = () => {
     },
   ];
 
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.9, filter: 'blur(10px)' },
+    show: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1, 
+      filter: 'blur(0px)', 
+      transition: { duration: 0.8 } 
+    }
+  };
+
   return (
     <section className="py-20 px-4 md:px-8 lg:px-12 xl:px-16 w-full max-w-[2500px] mx-auto">
       {/* Blog Header */}
@@ -56,20 +67,25 @@ export const BlogSection: React.FC = () => {
         {posts.map((post, index) => (
           <motion.article
             key={post.id}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={itemVariants}
+            initial="hidden"
+            whileInView="show"
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.15 }}
             className="bg-white rounded-3xl p-5 border border-slate-100 shadow-xl shadow-slate-200/40 flex flex-col justify-between group hover:border-cyan-200 transition-colors"
           >
             <div className="space-y-6">
               {/* Image */}
               <div className="relative rounded-2xl overflow-hidden h-64 bg-slate-100">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  poster={post.image}
+                  className="w-full h-full object-cover object-[60%_center] opacity-90 scale-100"
+                >
+                  <source src="/video.mp4" type="video/mp4" />
+                </video>
                 <div className="absolute top-4 left-4 bg-white px-4 py-1.5 rounded-full text-xs font-extrabold text-slate-900 shadow-sm">
                   {post.category}
                 </div>
@@ -127,40 +143,6 @@ export const BlogSection: React.FC = () => {
         </Link>
       </div>
 
-      {/* CTA Newsletter Section */}
-      <div className="pt-20 border-t border-slate-100">
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-12">
-          {/* Left: Headline */}
-          <div className="flex-1 text-center lg:text-left">
-            <h2 className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-slate-900 tracking-tight leading-[1.1]">
-              Your Smile Matters <br />
-              Connect With Us Today
-            </h2>
-          </div>
-          
-          {/* Right: Newsletter */}
-          <div className="w-full lg:w-[480px] space-y-6">
-            <p className="text-sm font-semibold text-slate-500 leading-relaxed text-center lg:text-left">
-              Join our newsletter to receive the latest oral health tips special offers and clinic updates.
-            </p>
-            <div className="flex items-center p-1.5 rounded-full border border-slate-200 bg-white shadow-sm focus-within:ring-2 focus-within:ring-cyan-500 focus-within:border-cyan-500 transition-all">
-              <div className="pl-5 text-slate-400">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                </svg>
-              </div>
-              <input 
-                type="email" 
-                placeholder="Your Email Address" 
-                className="flex-1 bg-transparent border-none focus:outline-none text-sm px-4 py-3 font-semibold text-slate-700 placeholder-slate-400 w-full"
-              />
-              <button className="bg-cyan-500 hover:bg-cyan-600 text-white font-extrabold py-3.5 px-8 rounded-full text-sm transition-colors shadow-md whitespace-nowrap">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
   );
 };
