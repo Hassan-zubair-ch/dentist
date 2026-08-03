@@ -75,16 +75,11 @@ export const BlogSection: React.FC = () => {
             <div className="space-y-6">
               {/* Image */}
               <div className="relative rounded-2xl overflow-hidden h-64 bg-slate-100">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  poster={post.image}
-                  className="w-full h-full object-cover object-[60%_center] opacity-90 scale-100"
-                >
-                  <source src="/video.mp4" type="video/mp4" />
-                </video>
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
                 <div className="absolute top-4 left-4 bg-white px-4 py-1.5 rounded-full text-xs font-extrabold text-slate-900 shadow-sm">
                   {post.category}
                 </div>
